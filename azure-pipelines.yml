@@ -12,7 +12,11 @@ pool:
 steps:
 - script: |
     sudo apt-get update
-    sudo apt-get install -y openjdk-12-jdk
+    sudo apt-get install -y wget
+    wget https://download.java.net/java/GA/jdk12/GPL/openjdk-12_linux-x64_bin.tar.gz
+    sudo tar -xvf openjdk-12_linux-x64_bin.tar.gz -C /usr/lib/jvm
+    sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-12/bin/java 1
+    sudo update-alternatives --set java /usr/lib/jvm/jdk-12/bin/java
   displayName: 'Install JDK 12'
 
 - task: Maven@3
@@ -20,7 +24,7 @@ steps:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'Path'
-    jdkDirectory: '/usr/lib/jvm/java-12-openjdk-amd64'
+    jdkDirectory: '/usr/lib/jvm/jdk-12
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
