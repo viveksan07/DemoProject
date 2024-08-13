@@ -130,7 +130,7 @@ stages:
           - task: KubernetesManifest@0
             inputs:
               action: 'deploy'
-              namespace: 'default'
+              namespace: 'default123'
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment-prod.yml
                 $(Pipeline.Workspace)/manifests/service-prod.yml

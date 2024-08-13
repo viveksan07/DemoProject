@@ -16,4 +16,4 @@ spec:
         - name: sampleapp 
           image: testingacr001.azurecr.io/sampleapp
           ports:
-          - containerPort: 80
+          - containerPort: 3000
