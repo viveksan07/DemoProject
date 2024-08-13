@@ -117,7 +117,7 @@ stages:
             displayName: Replace Tokens
             inputs:
               rootDirectory: '$(Pipeline.Workspace)/manifests/'
-              targetFiles: 'deployment.yml'
+              targetFiles: 'deployment-prod.yml'
               encoding: 'auto'
               writeBOM: true
               actionOnMissing: 'warn'
@@ -132,8 +132,8 @@ stages:
               action: 'deploy'
               namespace: 'default'
               manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/manifests/deployment-prod.yml
+                $(Pipeline.Workspace)/manifests/service-prod.yml
               containers: '$(acrprodurl)/$(imageRepo):$(tag)'
               imagePullSecrets: '$(acrsecret)'
   
