@@ -17,3 +17,4 @@ spec:
           image: testingacr001.azurecr.io/sampleapp
           ports:
           - containerPort: 80
+          - containerPort: 443
