@@ -22,7 +22,7 @@ WORKDIR /app
 COPY --from=build /app/target/Coronavirus-Tracker-0.0.1-SNAPSHOT.jar /app/Coronavirus-Tracker.jar
 
 # Expose the port that the application will run on
-EXPOSE 8080
+EXPOSE 80
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "Coronavirus-Tracker.jar"]
