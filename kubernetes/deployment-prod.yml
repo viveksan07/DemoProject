@@ -1,0 +1,24 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: sampleapp-prod
+  labels:
+    app: sampleapp-prod
+    environment: prod
+spec:
+  replicas: #replicaNo#
+  selector:
+    matchLabels:
+      app: sampleapp
+      environment: prod
+  template:
+    metadata:
+      labels:
+        app: sampleapp
+        environment: prod 
+    spec:
+      containers:
+        - name: sampleapp 
+          image: testingacr001.azurecr.io/sampleapp
+          ports:
+          - containerPort: 80
